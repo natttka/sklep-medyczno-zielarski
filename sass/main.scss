@@ -6,26 +6,46 @@
 body {
   background: rgb(230, 250, 225);
 }
+@mixin image($img){
+  content: "";
+  background: $img;
+  background-size: contain;
+  background-position: left;
+  background-repeat: no-repeat;
+  opacity: 0.4;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
 header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  height: 70vh;
+  height: 50vh;
   width: 100vw;
     img {
       width: 50vw;
       height: 40vh;
-      opacity: 0.7;
+      opacity: 0.8;
+    }
+    .weed{
+      width: 20vw;
+      height: 50vh;
+      opacity: 0.5;
     }
 }
 nav ul{
   display:flex;
-  justify-content: space-between;
+  justify-content: space-around;
   text-decoration: none;
+  align-items: center;
   list-style: none;
   background-color: rgba(70, 193, 125, 0.3);
-  padding: 1%;
   border-radius: 5%;
+  height: 8vh;
     a{
       text-decoration: none;
       color: rgb(139, 136, 119);
@@ -36,10 +56,11 @@ nav ul{
     }
     li:hover{
       background-color:rgba(0, 0, 0, 0.6);
+      padding: 1%;
     }
     .nav-scrolled{
   position: fixed;
-  width: 100%;
+  width: 100vw;
   top: 0;
     }
 }
@@ -49,37 +70,65 @@ nav ul{
   justify-content:space-between;
   flex-direction: column;
   margin-top: 10vh;
-  width: 100%;
+  width: 100vw;
 
     p {
-      font-size: 1.3em;
-      width: 50%;
+      font-size: 1.4em;
+      width: 60%;
     }
     div {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-      width: 90vw;
-      height: 90vh;
-    }
-    #social, #info, #cont, #mail {
       flex-direction: row;
-        h3{
+      align-items: center;
+      justify-content: center;
+      width: 80%;
+      height: 100vh;
+      border: 2px solid rgb(182, 233, 195);
+      border-radius: 10%;
+      position: relative;
+    }
+  #info::after {
+    @include image(url("../img/mortar-1445329_1920.png"))
+}
+  #social::after {
+    @include image(url('../img/biennial-1299851_1280.png'));
+background-position: right;
+}
+  #cont::after {
+    @include image(url("../img/creeping-1300062_1280.png"));
+background-position: right;
+}
+  #social, #info, #cont, #mail {
+    flex-direction: row;
+      h3{
           font-size: 2em;
           color:rgb(182, 233, 195);
           background-color: rgba(0, 0, 0, 0.7);
-          width: 10vw;
+          width: 20vw;
           padding: 1%;
           border-radius: 5%;
+          // transform:rotate(270deg);
+          margin-right: 20%;
+          align-self: flex-start;
+          margin-top: 5%;
+        }
+      span {
+        width: 50%;
         }
     }
-
-  .mouse_over {
-    border: 2px solid rgb(182, 233, 195);
-    border-radius: 10%;
-    transition: 1s;
-  }
+    .fejs{
+      font-size: 1.8em;
+    }
+}
+#cont {
+  span{
+  margin-right: 25vw;
+  font-size: 1.6em;
+  width: 70%;
+    p{
+      width: 80%;
+    }
+}
 }
 footer {
   width: 100vw;
@@ -91,13 +140,19 @@ footer {
 }
 .foot-div{
 display: flex;
-justify-content: space-between;
+justify-content: space-around;
+width: 90%;
     p {
       font-size: 1.3em;
     }
     span {
       align-self: center;
       margin-right: 5vw;
+    }
+    img {
+      width: 15%;
+      height: 15%;
+      opacity: 0.5;
     }
 }
 #mail {
@@ -108,6 +163,7 @@ justify-content: space-between;
   width: 100vw;
   height: 90vh;
   margin-bottom: 10vh;
+  position: relative;
     input[type="text"], input[type="email"] {
       width: 30vw;
       height: 7vh;
@@ -121,38 +177,72 @@ justify-content: space-between;
       height: 20vh;
       display: block;
       border: 2px solid rgba(107, 196, 119, 0.8);
-      font-size: 1.3em;
+      font-size: 1.4em;
       border-radius: 10%;
     }
     input[type="submit"] {
       width: 10vw;
       height: 7vh;
       display: block;
-      font-size: 1.3em;
+      font-size: 1.4em;
       color: darken(rgb(78, 188, 129), 10%);
       border-radius: 50%;
-      background-color: rgba(123, 195, 128, 0.2);
+      background-color: rgba(123, 195, 128, 0.3);
+      margin-left: 33%;
     }
     input[type="submit"]:hover {
       color: white;
       font-weight: bold;
-      background-color: rgba(113, 202, 125, 0.5);
+      background-color: rgba(0, 0, 0, 0.7);
     }
     h3{
       font-size: 2em;
       color:rgb(182, 233, 195);
       background-color: rgba(0, 0, 0, 0.7);
-      width: 10vw;
+      width: 20vw;
       padding: 1%;
       border-radius: 5%;
       margin-bottom: 5vh;
+      text-align: center;
     }
     }
-    .sticky
-    {
+    #mail::after {
+      @include image(url("../img/dried-flower-782768_1920.png"));
+      background-position: center;
+      background-size: cover;
+      opacity: 0.3;
+    }
+    .sticky{
     	width: 100%;
     	position: fixed;
     	left: 0;
     	top: 0;
     	z-index: 100;
+    }
+    .invalid{
+        background-color: rgba(240, 104, 108, 0.6);
+    }
+     .valid{
+        background-color: rgba(135, 216, 36, 0.6);
+    }
+    .slider {
+      width: 80vw;
+      height: 70vh;
+      margin-top: 5vh;
+      margin-left: 10vw;
+        img {
+          width: 70vw;
+          height: 55vh;
+          opacity: 0.8;
+          position: absolute;
+        }
+    }
+.slider ul{
+   list-style: none;
+    }
+.slider li{
+   display: none;
+    }
+.slider .visible{
+   display: inline-block;
     }
